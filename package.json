@@ -1,0 +1,23 @@
+{
+  "name": "covid-vizualization",
+  "version": "1.0.0",
+  "description": "A visualization tool for COVID-19 data",
+  "main": "helperFunctions.js",
+  "dependencies": {
+    "d3-svg-annotation": "^2.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarvinMassey/CovidVisualizer.git"
+  },
+  "author": "Marvin Massey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarvinMassey/CovidVisualizer/issues"
+  },
+  "homepage": "https://github.com/MarvinMassey/CovidVisualizer/tree/main"
+}
