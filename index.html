@@ -26,22 +26,24 @@
   }
 </style>
 <div align="center">
-  <h1>Coronavirus in 3 Different States</h1>
+  <h1> Pandemic Peaks: COVID-19's 2020 Impact on Top US States </h1>
   <p>
-    These are the 3 states with the most populous cities in the US - NYC, L.A.,
-    and Chicago. <br />
-    Let's see how each state has handled the coronavirus.
+    The six most popolous US states in 2023 are: <br /> California, Texas, Florida, New York, Pennsylvania, and Illinois, respectively. <br /> When the coronavirus first hit, the country was in a state of urgency. <br />
+    Let's go back to the year 2020 and see how each state handled the coronavirus.
   </p>
   <p>Hover over the graph for more detail.</p>
 
   <div id="container"></div>
   <div class="pagination">
     <a class="active" href="index.html">1</a>
-    <a href="ny.html">2</a>
-    <a href="cali.html">3</a>
-    <a href="illinois.html">4</a>
-    <a href="resources.html">5</a>
-    <a href="ny.html">&raquo;</a>
+    <a href="cali.html">2</a>
+    <a href="texas.html">3</a>
+    <a href="florida.html">4</a>
+    <a href="ny.html">5</a>
+    <a href="penn.html">6</a>
+    <a href="illinois.html">7</a>
+    <a href="resources.html">8</a>
+    <a href="cali.html">&raquo;</a>
   </div>
 </div>
 
@@ -51,27 +53,33 @@
 <script>
   // LOAD & STRUCTURE DATA
   let series = [];
-  let ilCases = [];
-  let nyCases = [];
   let caliCases = [];
+  let texCases = [];
+  let flCases = [];
+  let nyCases = [];
+  let pennCases = [];
+  let ilCases = [];
   let dates = new Set();
   const dateParser = d3.timeParse("%Y-%m-%d");
 
   d3.csv("us-states.csv", populateCasesByState, function () {
-    zeroPadArrays(caliCases, nyCases);
+    // zeroPadArrays(caliCases, nyCases, texCases, flCases, pennCases);
 
     let data = {
       y: "# Cases",
       series: [
-        { name: "New York", color: "blue", cases: nyCases },
         { name: "California", color: "green", cases: caliCases },
-        { name: "Illinois", color: "red", cases: ilCases },
+        { name: "Texas", color: "red", cases: texCases },
+        { name: "Florida", color: "yellowgreen", cases: flCases },
+        { name: "New York", color: "blue", cases: nyCases },
+        { name: "Pennsylvania", color: "purple", cases: pennCases },
+        { name: "Illinois", color: "orange", cases: ilCases },
       ],
       dates: [...dates],
     };
 
     // CONSTRUCT GRAPH CONTAINER
-    const margin = { top: 80, right: 150, bottom: 60, left: 100 };
+    const margin = { top: 80, right: 250, bottom: 60, left: 100 };
     const width = 700 - margin.left - margin.right;
     const height = 500 - margin.top - margin.bottom;
 
@@ -173,6 +181,30 @@
       .attr("stroke-width", 1.5)
       .attr("class", "line")
       .attr("d", line(data.series[2].cases));
+
+      svg
+      .append("path")
+      .attr("fill", "none")
+      .attr("stroke", data.series[3].color)
+      .attr("stroke-width", 1.5)
+      .attr("class", "line")
+      .attr("d", line(data.series[3].cases));
+
+      svg
+      .append("path")
+      .attr("fill", "none")
+      .attr("stroke", data.series[4].color)
+      .attr("stroke-width", 1.5)
+      .attr("class", "line")
+      .attr("d", line(data.series[4].cases));
+
+      svg
+      .append("path")
+      .attr("fill", "none")
+      .attr("stroke", data.series[5].color)
+      .attr("stroke-width", 1.5)
+      .attr("class", "line")
+      .attr("d", line(data.series[5].cases));
 
     // CONSTRUCT TOOLTIP LINE
     var mouseG = svg.append("g").attr("class", "mouse-over-effects");

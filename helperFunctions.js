@@ -9,6 +9,15 @@ function populateCasesByState(d) {
   if (d.state === "California") {
     caliCases.push(+d.cases);
   }
+  if (d.state === "Texas") {
+    texCases.push(+d.cases);
+  }
+  if (d.state === "Pennsylvania") {
+    pennCases.push(+d.cases);
+  }
+  if (d.state === "Florida") {
+    flCases.push(+d.cases);
+  }
 }
 
 function zeroPadArrays(caliCases, nyCases) {

@@ -26,7 +26,7 @@
   }
 
   .annotation path {
-    stroke: orange;
+    stroke: red;
     fill: none;
   }
 
@@ -67,26 +67,26 @@
   }
 </style>
 <div align="center">
-  <h1>Illinois: Navigating the Crisis</h1>
-  <p>Illinois's first case was on <b>January 24, 2020</b>.</p>
-  <p>Illinois's population in 2020 was <b>12.59 million</b>.</p>
+  <h1>Texas: Struggling Amidst the Storm</h1>
+  <p>Texas's first case was on <b>March 4th, 2020</b>.</p>
+  <p>Texas's population in 2020 was <b>29.36 million</b>.</p>
   <p>
-    Under the stringent lockdown measures, Illinois showed promising signs of <a href="https://www.youtube.com/watch?v=NwDwuIjnZvU">progress</a> in flattening the curve.  <br />
-    However, after restrictions were lifted, Illinois faced a new surge in COVID-19 cases. <br /> The graph illustrates the sudden uptick, raising concerns and highlighting the challenges in managing the pandemic. <br />
-  <br />
+    Texas found itself in the eye of the storm, grappling with the monumental task of managing the pandemic. <br />
+    One specific area that garnered attention was <b>Houston</b>, a metropolis known for its vibrant energy. Despite being a hub for medical facilities, <br /> 
+    Houston experienced its share of hardships as COVID-19 strained its <a href="https://www.youtube.com/watch?v=55N8PwE3G04">healthcare infrastructure</a>.
   </p>
 
   <div id="container"></div>
   <div class="pagination">
     <a href="index.html">1</a>
     <a href="cali.html">2</a>
-    <a href="texas.html">3</a>
+    <a class="active" href="texas.html">3</a>
     <a href="florida.html">4</a>
     <a href="ny.html">5</a>
     <a href="penn.html">6</a>
-    <a class="active" href="illinois.html">7</a>
+    <a href="illinois.html">7</a>
     <a href="resources.html">8</a>
-    <a href="resources.html">&raquo;</a>
+    <a href="florida.html">&raquo;</a>
   </div>
 </div>
 
@@ -101,7 +101,7 @@
   d3.csv(
     "us-states.csv",
     function (d) {
-      if (d.state === "Illinois") {
+      if (d.state === "Texas") {
         return { date: dateParser(d.date), cases: +d.cases };
       }
     },
@@ -158,7 +158,7 @@
       svg
         .append("path")
         .attr("fill", "none")
-        .attr("stroke", "orange")
+        .attr("stroke", "red")
         .attr("stroke-width", 1.5)
         .attr("class", "line")
         .attr("d", line(data));
@@ -167,27 +167,27 @@
       const labels = [
         {
           note: {
-            label: "2020-03-21",
+            label: "2020-03-31",
             title: "Stay at home begins",
           },
-          dy: -100,
+          dy: -50,
           dx: 0,
           data: {
-            x: "2020-03-21",
-            y: 751,
+            x: "2020-03-31",
+            y: 3500,
           },
           subject: { radius: 5 },
         },
         {
           note: {
-            label: "2020-05-30",
+            label: "2020-04-30",
             title: "Stay at home ends",
           },
-          dy: 0,
-          dx: 50,
+          dy: -150,
+          dx: 0,
           data: {
-            x: "2020-05-30",
-            y: 119290,
+            x: "2020-04-30",
+            y: 30000,
           },
           subject: { radius: 5 },
         },
@@ -219,4 +219,4 @@
         .classed("hidden", true);
     }
   );
-  </script>
+</script>
